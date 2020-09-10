@@ -1,4 +1,4 @@
 # Table of contents
 
-* [README](README.md)
+* [Desgin Pattern](README.md)
 
