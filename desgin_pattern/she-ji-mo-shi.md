@@ -6,8 +6,13 @@ description: 这是设计模式笔记.
 
 #### 代理模式
 
-例子:
+_介绍:_  
+      在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式,在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口.
 
+_实现原理:_  
+　　我们将创建一个 Image 接口和实现了 Image 接口的实体类。ProxyImage 是一个代理类，减少 RealImage 对象加载的内存占用,ProxyPatternDemo，我们的演示类使用 ProxyImage 来获取要加载的 Image 对象，并按照需求进行显示。
+
+_例子:_  
 image接口:
 
 ```java
