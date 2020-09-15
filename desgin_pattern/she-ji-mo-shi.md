@@ -97,7 +97,7 @@ _实现:_
 _例子:  
 1._创建抽象的记录器类:
 
-```text
+```java
 public abstract class AbstractLogger {
    public static int INFO = 1;
    public static int DEBUG = 2;
@@ -128,7 +128,7 @@ public abstract class AbstractLogger {
 
 2.创建扩展了记录器类的实体类:
 
-```text
+```java
 public class ConsoleLogger extends AbstractLogger {
  
    public ConsoleLogger(int level){
@@ -169,7 +169,7 @@ public class FileLogger extends AbstractLogger {
   
 3.创建不同类型的记录器。赋予它们不同的错误级别，并在每个记录器中设置下一个记录器。每个记录器中的下一个记录器代表的是链的一部分:
 
-```text
+```java
 public class ChainPatternDemo {
    
    private static AbstractLogger getChainOfLoggers(){
@@ -200,7 +200,7 @@ public class ChainPatternDemo {
 
 4.输出结果:
 
-```text
+```java
 Standard Console::Logger: This is an information.
 File::Logger: This is a debug level information.
 Standard Console::Logger: This is a debug level information.
