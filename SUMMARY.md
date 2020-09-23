@@ -6,3 +6,7 @@
 
 * [设计模式](desgin_pattern/she-ji-mo-shi.md)
 
+## 备忘录
+
+* [备忘录](bei-wang-lu/bei-wang-lu.md)
+
