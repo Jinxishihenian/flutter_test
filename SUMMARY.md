@@ -8,5 +8,5 @@
 
 ## 备忘录
 
-* [备忘录](bei-wang-lu/bei-wang-lu.md)
+* [账户密码](bei-wang-lu/bei-wang-lu.md)
 
