@@ -14,3 +14,7 @@
 
 * [工作问题记录](gong-zuo-wen-ti/gong-zuo-wen-ti-ji-lu.md)
 
+---
+
+* [编写笔记Style](bian-xie-bi-ji-style.md)
+
