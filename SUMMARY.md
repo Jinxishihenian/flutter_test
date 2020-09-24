@@ -10,3 +10,7 @@
 
 * [账户密码](bei-wang-lu/bei-wang-lu.md)
 
+## 工作问题
+
+* [工作问题记录](gong-zuo-wen-ti/gong-zuo-wen-ti-ji-lu.md)
+
