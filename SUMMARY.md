@@ -21,5 +21,5 @@
 
 ## javascript
 
-* [Untitled](javascript/untitled.md)
+* [dom篇](javascript/untitled.md)
 
