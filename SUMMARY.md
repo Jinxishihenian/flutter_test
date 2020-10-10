@@ -19,7 +19,11 @@
 * [编写笔记Style](bian-xie-bi-ji-style.md)
 * [学习方法总结](xue-xi-fang-fa-zong-jie.md)
 
-## javascript
+## javascript篇 <a id="javascript"></a>
 
 * [dom篇](javascript/untitled.md)
+
+## 计划
+
+* [计划安排](ji-hua/ji-hua-an-pai.md)
 
