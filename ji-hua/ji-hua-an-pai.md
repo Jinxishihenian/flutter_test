@@ -31,7 +31,8 @@ description: 所有的计划安排
 * 学习写flutter测试用例.
 * 学习android studio开发工具.
 * javascript高级程序设计每天三页.
-* ios打包流程.
+* 学习ios打包流程.
+* 学会做笔记.
 * 每天11点之前睡觉,6早起计划.
 
 #### 计划要点:
