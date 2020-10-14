@@ -4,7 +4,8 @@
 
 ## desgin\_pattern
 
-* [设计模式](desgin_pattern/she-ji-mo-shi.md)
+* [设计模式](desgin_pattern/she-ji-mo-shi/README.md)
+  * [Untitled](desgin_pattern/she-ji-mo-shi/untitled.md)
 
 ## 备忘录
 
