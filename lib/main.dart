@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/model/counter_model.dart';
 import 'package:flutterapp/model/provider_bloc.dart';
+import 'package:flutterapp/pages/TXindex.dart';
 import 'package:flutterapp/test/provider_demo/provider_demo.dart';
 
 import 'package:provider/provider.dart';
@@ -19,7 +20,7 @@ void main() {
       // ListenableProvider ChangeNotifierProvider 的父类.
 
       ListenableProvider(
-        create:(context) => CounterModel(),
+        create: (context) => CounterModel(),
       ),
     ],
     child: MyApp(),
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ProviderDemo(),
+      home: TXindex(),
+      // home: ProviderDemo(),
 //      home: Provider<int>.value(
 //        value: 48,
 //        child: ChangeNotifierProvider(
