@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class TXindex extends StatefulWidget {
   @override
   _TXindexState createState() => _TXindexState();
 }
 
-class _TXindexState extends State<TXindex> {
+class _TXindexState extends State<TXindex> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 3, vsync: this);
     return Material(
       child: CustomScrollView(
         slivers: [
@@ -44,6 +46,58 @@ class _TXindexState extends State<TXindex> {
               ),
             ),
           ),
+          // 吸顶效果.
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: _SliverAppBarDelegate(
+              minHeight: 49,
+              maxHeight: 49,
+              child: Container(
+                padding: EdgeInsets.only(left: 15),
+                color: Colors.lightBlueAccent,
+                alignment: Alignment.centerLeft,
+                child: TabBar(
+                  controller: _tabController,
+                  tabs: [
+                    Tab(
+                      icon: Text('一号线'),
+                    ),
+                    Tab(
+                      icon: Text('二号线'),
+                    ),
+                    Tab(
+                      icon: Text('三号线'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // delegate: delegate,
+          ),
+          // 可以加载普通weight.
+          SliverToBoxAdapter(
+            child: SizedBox(
+              width: 100,
+              height: 100,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  Text(
+                    '视图1',
+                    style: TextStyle(color: Colors.lightBlueAccent),
+                  ),
+                  Text(
+                    '视图2',
+                    style: TextStyle(color: Colors.lightBlueAccent),
+                  ),
+                  Text(
+                    '视图3',
+                    style: TextStyle(color: Colors.lightBlueAccent),
+                  ),
+                ],
+              ),
+            ),
+          ),
           SliverFixedExtentList(
             itemExtent: 50.0,
             delegate: SliverChildBuilderDelegate(
@@ -59,5 +113,42 @@ class _TXindexState extends State<TXindex> {
         ],
       ),
     );
+  }
+}
+
+/// 吸顶类.
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate({
+    @required this.minHeight,
+    @required this.maxHeight,
+    @required this.child,
+  });
+
+  final double minHeight;
+  final double maxHeight;
+  final Widget child;
+
+  @override
+  double get minExtent => minHeight;
+
+  @override
+  double get maxExtent => max(maxHeight, minHeight);
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return SizedBox.expand(
+      child: child,
+    );
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return maxHeight != oldDelegate.maxHeight ||
+        minHeight != oldDelegate.minHeight ||
+        child != oldDelegate.child;
   }
 }
