@@ -17,8 +17,15 @@ class _TXindexState extends State<TXindex> with TickerProviderStateMixin {
           SliverAppBar(
             pinned: true,
             expandedHeight: 250.0,
+            title: Row(
+              // crossAxisAlignment:CrossAxisAlignment.
+                children: [
+                  Text('砼鑫1.0',),
+                  Text('切换企业',),
+                ]),
+            // backgroundColor: Colors.white,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('砼鑫'),
+              // title: Text('砼鑫'),
               background: Image.asset(
                 "images/index.jpeg",
                 fit: BoxFit.cover,
@@ -35,7 +42,7 @@ class _TXindexState extends State<TXindex> with TickerProviderStateMixin {
                 childAspectRatio: 4,
               ),
               delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
+                    (BuildContext context, int index) {
                   return Container(
                     alignment: Alignment.center,
                     color: Colors.cyan[100 * (index % 9)],
@@ -101,7 +108,7 @@ class _TXindexState extends State<TXindex> with TickerProviderStateMixin {
           SliverFixedExtentList(
             itemExtent: 50.0,
             delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
+                  (BuildContext context, int index) {
                 return Container(
                   alignment: Alignment.center,
                   color: Colors.lightBlue[100 * (index % 9)],
@@ -135,11 +142,9 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => max(maxHeight, minHeight);
 
   @override
-  Widget build(
-    BuildContext context,
-    double shrinkOffset,
-    bool overlapsContent,
-  ) {
+  Widget build(BuildContext context,
+      double shrinkOffset,
+      bool overlapsContent,) {
     return SizedBox.expand(
       child: child,
     );
