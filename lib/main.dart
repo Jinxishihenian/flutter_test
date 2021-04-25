@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/model/counter_model.dart';
 import 'package:flutterapp/model/provider_bloc.dart';
-import 'package:flutterapp/pages/TXindex.dart';
-import 'package:flutterapp/test/provider_demo/provider_demo.dart';
-
+import 'package:flutterapp/pages/index/TXindex.dart';
 import 'package:provider/provider.dart';
 
 void main() {
