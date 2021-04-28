@@ -36,126 +36,133 @@ class _TXindexState extends State<TXindex> with TickerProviderStateMixin {
               break;
           }
         },
-        child: CustomScrollView(
-          slivers: [
-            SliverPersistentHeader(
-              pinned: true,
-              delegate: SliverAppBarDelegate(
-                minHeight: 100,
-                maxHeight: 100,
-                child: CustomAppBar(),
+        child: RefreshIndicator(
+          onRefresh: () async {
+            await Future<Null>.delayed(Duration(seconds: 3), () {
+              print("刷新完成...");
+            });
+          },
+          child: CustomScrollView(
+            slivers: [
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: SliverAppBarDelegate(
+                  minHeight: 100,
+                  maxHeight: 100,
+                  child: CustomAppBar(),
+                ),
+                // delegate: delegate,
               ),
-              // delegate: delegate,
-            ),
-            // AppBar.
-            /* SliverAppBar(
-              pinned: true,
-              expandedHeight: 250.0,
-              title: Row(
-                  // crossAxisAlignment:CrossAxisAlignment.
-                  children: [
-                    Text(
-                      '砼鑫1.0',
+              // AppBar.
+              /* SliverAppBar(
+                pinned: true,
+                expandedHeight: 250.0,
+                title: Row(
+                    // crossAxisAlignment:CrossAxisAlignment.
+                    children: [
+                      Text(
+                        '砼鑫1.0',
+                      ),
+                      Text(
+                        '切换企业',
+                      ),
+                    ]),
+                // backgroundColor: Colors.white,
+                flexibleSpace: FlexibleSpaceBar(
+                  // title: Text('砼鑫'),
+                  background: Image.asset(
+                    "images/index.jpeg",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),*/
+              SliverPadding(
+                padding: EdgeInsets.all(8.0),
+                sliver: SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 4,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return Container(
+                        alignment: Alignment.center,
+                        color: Colors.cyan[100 * (index % 9)],
+                        child: Text('grid item $index'),
+                      );
+                    },
+                    childCount: 20,
+                  ),
+                ),
+              ),
+              // 吸顶效果.
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: SliverAppBarDelegate(
+                  minHeight: 49,
+                  maxHeight: 49,
+                  child: Container(
+                    padding: EdgeInsets.only(left: 15),
+                    color: Colors.lightBlueAccent,
+                    alignment: Alignment.centerLeft,
+                    child: TabBar(
+                      controller: _tabController,
+                      tabs: [
+                        Tab(
+                          icon: Text('一号线'),
+                        ),
+                        Tab(
+                          icon: Text('二号线'),
+                        ),
+                        Tab(
+                          icon: Text('三号线'),
+                        ),
+                      ],
                     ),
-                    Text(
-                      '切换企业',
-                    ),
-                  ]),
-              // backgroundColor: Colors.white,
-              flexibleSpace: FlexibleSpaceBar(
-                // title: Text('砼鑫'),
-                background: Image.asset(
-                  "images/index.jpeg",
-                  fit: BoxFit.cover,
+                  ),
                 ),
+                // delegate: delegate,
               ),
-            ),*/
-            SliverPadding(
-              padding: EdgeInsets.all(8.0),
-              sliver: SliverGrid(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 4,
-                ),
-                delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                    return Container(
-                      alignment: Alignment.center,
-                      color: Colors.cyan[100 * (index % 9)],
-                      child: Text('grid item $index'),
-                    );
-                  },
-                  childCount: 20,
-                ),
-              ),
-            ),
-            // 吸顶效果.
-            SliverPersistentHeader(
-              pinned: true,
-              delegate: SliverAppBarDelegate(
-                minHeight: 49,
-                maxHeight: 49,
-                child: Container(
-                  padding: EdgeInsets.only(left: 15),
-                  color: Colors.lightBlueAccent,
-                  alignment: Alignment.centerLeft,
-                  child: TabBar(
+              // 可以加载普通weight.
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: TabBarView(
                     controller: _tabController,
-                    tabs: [
-                      Tab(
-                        icon: Text('一号线'),
+                    children: [
+                      Text(
+                        '视图1',
+                        style: TextStyle(color: Colors.lightBlueAccent),
                       ),
-                      Tab(
-                        icon: Text('二号线'),
+                      Text(
+                        '视图2',
+                        style: TextStyle(color: Colors.lightBlueAccent),
                       ),
-                      Tab(
-                        icon: Text('三号线'),
+                      Text(
+                        '视图3',
+                        style: TextStyle(color: Colors.lightBlueAccent),
                       ),
                     ],
                   ),
                 ),
               ),
-              // delegate: delegate,
-            ),
-            // 可以加载普通weight.
-            SliverToBoxAdapter(
-              child: SizedBox(
-                width: 100,
-                height: 100,
-                child: TabBarView(
-                  controller: _tabController,
-                  children: [
-                    Text(
-                      '视图1',
-                      style: TextStyle(color: Colors.lightBlueAccent),
-                    ),
-                    Text(
-                      '视图2',
-                      style: TextStyle(color: Colors.lightBlueAccent),
-                    ),
-                    Text(
-                      '视图3',
-                      style: TextStyle(color: Colors.lightBlueAccent),
-                    ),
-                  ],
+              SliverFixedExtentList(
+                itemExtent: 50.0,
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return Container(
+                      alignment: Alignment.center,
+                      color: Colors.lightBlue[100 * (index % 9)],
+                    );
+                  },
+                  childCount: 50,
                 ),
               ),
-            ),
-            SliverFixedExtentList(
-              itemExtent: 50.0,
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return Container(
-                    alignment: Alignment.center,
-                    color: Colors.lightBlue[100 * (index % 9)],
-                  );
-                },
-                childCount: 50,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
