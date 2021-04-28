@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/model/counter_model.dart';
+import 'package:flutterapp/moudles/counter_model.dart';
 import 'package:provider/provider.dart';
 
 class ProviderShow extends StatefulWidget {

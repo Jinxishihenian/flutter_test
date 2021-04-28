@@ -1,8 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/model/counter_model.dart';
+import 'package:flutterapp/moudles/counter_model.dart';
 import 'package:flutterapp/test/provider_demo/provider_show.dart';
 import 'package:provider/provider.dart';
 

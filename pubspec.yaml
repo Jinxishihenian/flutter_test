@@ -22,6 +22,8 @@ environment:
 
 dependencies:
   provider: ^4.3.2+1
+  fluro: ^1.7.8
+  get: ^3.26.0
   flutter:
     sdk: flutter
 
