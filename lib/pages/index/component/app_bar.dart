@@ -23,7 +23,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: Alignment.center, children: [
+    return Stack(alignment: Alignment.topCenter, children: [
+      OverflowBox(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child:Image.asset(
+            "images/index.jpeg",
+            fit: BoxFit.cover,
+          ),
+          color: Colors.yellow,
+        ),
+      ),
       Opacity(
         opacity: distance.getScale,
         child: Container(
@@ -45,9 +55,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   void _listener() {
     if (mounted) {
-      this.setState(() {
-
-      });
+      this.setState(() {});
     }
   }
 }

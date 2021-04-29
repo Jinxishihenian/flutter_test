@@ -48,7 +48,7 @@ class _TXindexState extends State<TXindex> with TickerProviderStateMixin {
                 pinned: true,
                 delegate: SliverAppBarDelegate(
                   minHeight: 100,
-                  maxHeight: 100,
+                  maxHeight: 400,
                   child: CustomAppBar(),
                 ),
                 // delegate: delegate,
